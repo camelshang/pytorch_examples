@@ -56,6 +56,9 @@ class D(nn.Module):
 
 gen = G(in_size, g_hid, in_size)
 dis = D(in_size, d_hid, 1)
+if torch.cuda.is_available():
+    gen = gen.cuda()
+    dis = dis.cuda()
 print(gen)
 print(dis)
 
